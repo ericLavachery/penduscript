@@ -4,76 +4,81 @@
         <meta charset="utf-8">
         <title>Penduscript</title>
     </head>
-    <body>
+    <body style="color: grey; font-family: arial;">
         <h2>Penduscript</h2>
-        <p>I have a word, now find it!</p>
-        <p id="wordpart"></p>
+        <form class="" action="index.html" method="post">
+            <input type="submit" value="Try another word">
+        </form>
+        <h2 id="wordpart" style="color: red;"></h2>
         <p id="tested"></p>
         <button onclick="guessLetter()">Choose a Letter</button>
-        <p id="took"></p>
-        <p id="tell"></p>
+        <p>
+            <span id="took"></span>
+            <span id="tell"></span>
+        </p>
         <p id="pendu"><img src="pendu0.png" alt=""></p>
         <h1 id="won" style="color: red;"></h1>
-        <p><a href="index.html">Recommencer!</a></p>
 
 
 <script>
-
-
-//
-// Créer un tableau pour contenir les lettres du mot : 'B','O','N','J','O','U','R',
-//
-// Créer un autre tableau pour mettre les lettres devinées : '','','','','','','_'
-//
-// Écrivez une fonction appelée "guessLetter" cette fonction va
-//
-//     Itérer à travers les lettres
-//     Voir si la lettre devinée se trouve dans le mot
-//     Si oui changer le tableau des lettres devinées pour ajouter la nouvelle lettre
-//     Afficher dans la console les lettre devinées
-//     Le jeu doit savoir quand la partie est finie et féliciter le joueur
-
-var myWords = [
-    "BONJOUR",
-    "CAOUTCHOUC",
-    "OISEAU",
-    "JAVASCRIPT",
-    "SCHTROUMPH",
-    "TYRANNOSAURE",
-    "FLUORESCENCE",
-    "PARTITION",
-    "SULTAN",
-    "DILIGENCE",
-    "PATAGONIE",
-    "MALOTRU",
-    "TRIANGLE",
-    "PERDITION",
-    "NOMENCLATURE",
-    "FILANDREUX",
-    "FASTOCHE",
-    "MICROBIOTIQUE",
-    "BOA",
-    "BARBITURIQUE",
-    "ESCALADE",
-    "PLASTIQUE",
-    "MYRIADE",
-    "ORNITHOPTERE",
-    "SALTIMBANQUE",
-    "DUPLEX",
-    "ZERO",
-    "USURPER",
-    "AMYGDALES",
-    "ASTHME",
-    "GNOU",
-    "YGTHOMURATODOLUW"
-];
 
 var goodLetters = [];
 var foundLetters = [];
 var restLetters = [];
 
-// choose a word
-var myWord = myWords[Math.floor(Math.random()*myWords.length)];
+var yourEntry = prompt("Add your own word, or leave empty for a random word", "");
+
+if (!/[^a-z]/i.test(yourEntry)) {
+    yourEntry = yourEntry.toUpperCase();
+} else {
+    yourEntry = '';
+}
+
+
+// console.log("your entry = " + yourEntry);
+
+if (yourEntry === '') {
+    var myWords = [
+        "BONJOUR",
+        "CAOUTCHOUC",
+        "OISEAU",
+        "JAVASCRIPT",
+        "SCHTROUMPH",
+        "TYRANNOSAURE",
+        "FLUORESCENCE",
+        "PARTITION",
+        "SULTAN",
+        "DILIGENCE",
+        "PATAGONIE",
+        "MALOTRU",
+        "TRIANGLE",
+        "PERDITION",
+        "NOMENCLATURE",
+        "FILANDREUX",
+        "FASTOCHE",
+        "MICROBIOTIQUE",
+        "BOA",
+        "BARBITURIQUE",
+        "ESCALADE",
+        "PLASTIQUE",
+        "MYRIADE",
+        "ORNITHOPTERE",
+        "SALTIMBANQUE",
+        "DUPLEX",
+        "ZERO",
+        "USURPER",
+        "AMYGDALES",
+        "ASTHME",
+        "GNOU",
+        "YGTHOMURATODOLUW"
+    ];
+    // choose a word
+    var myWord = myWords[Math.floor(Math.random()*myWords.length)];
+} else {
+    var myWord = yourEntry;
+}
+
+// console.log(myWord);
 
 var i = 0;
 while (i != myWord.length) {
@@ -88,13 +93,13 @@ var potence = 0;
 
 // Print the word
 document.getElementById("wordpart").innerHTML = foundLetters.join(" ");
-document.getElementById("tested").innerHTML = "Tested letters: none";
+document.getElementById("tested").innerHTML = "Tested letters: /";
 
 function guessLetter() {
     var inLetter = prompt("Please type a letter", "");
     var yourLetter = inLetter.toUpperCase();
     if (yourLetter != null) {
-        document.getElementById("took").innerHTML = "You took " + yourLetter;
+        document.getElementById("took").innerHTML = "You took " + yourLetter + ", and ";
 
         if (goodLetters.includes(yourLetter)) {
 
