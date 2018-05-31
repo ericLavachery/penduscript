@@ -20,7 +20,7 @@ if (yourEntry === '') {
         "CAOUTCHOUC",
         "OISEAU",
         "JAVASCRIPT",
-        "SCHTROUMPH",
+        "SCHTROUMPF",
         "TYRANNOSAURE",
         "FLUORESCENCE",
         "PARTITION",
