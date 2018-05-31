@@ -1,0 +1,27 @@
+html{
+box-sizing: border-box;
+}
+
+body{
+    margin-top: 0;
+    background-color: black;
+}
+
+.jumbotron{
+    margin-top: 0;
+    text-align: center;
+    background-image: url("img/bgpendu.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.jumbotron p, .jumbotron h1, .jumbotron h2{
+    color: #FFFFFF;
+    mix-blend-mode: difference;
+    /* color: #000000;
+    text-shadow: 0px 0px 3px white; */
+}
+
+h1{
+    margin-top: 0;
+}
