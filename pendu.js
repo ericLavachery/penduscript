@@ -111,7 +111,7 @@ function guessLetter() {
                 }
 // fin du faux loop
 
-                var response = '<span style="color: green;">' + yourLetter + ' is in my word!</span>';
+                var response = '<span style="color: blue;">' + yourLetter + ' is in my word!</span>';
             } else {
                 var response = "There's no more " + yourLetter + " in my word...";
             }
@@ -140,7 +140,7 @@ function guessLetter() {
             }
             document.getElementById("pendu").innerHTML = '<img src="img/pendu' + potence + '.png" alt="">';
         } else {
-            document.getElementById("won").innerHTML = '<span style="color: green;">YEEEEHEEEEE!!!</span>';
+            document.getElementById("won").innerHTML = '<span style="color: blue;">YEEEEHEEEEE!!!</span>';
         }
 
     document.getElementById("tell").innerHTML = response;
