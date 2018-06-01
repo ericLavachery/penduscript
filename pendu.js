@@ -3,18 +3,23 @@ var goodLetters = [];
 var foundLetters = [];
 var restLetters = [];
 
-var yourEntry = prompt("Add your own word, or leave empty for a random word", "");
+var yourInput = prompt("Add your own word, or leave empty for a random word", "");
 
-if (!/[^a-z]/i.test(yourEntry)) {
-    yourEntry = yourEntry.toUpperCase();
+if (typeof yourInput !== 'object') {
+
+    if (!/[^a-z]/i.test(yourInput)) {
+        yourEntry = yourInput.toUpperCase();
+    } else {
+        yourEntry = '';
+    }
+
 } else {
     yourEntry = '';
 }
 
-
 // console.log("your entry = " + yourEntry);
 
-if (yourEntry === '') {
+if (yourEntry == '' || yourEntry == null) {
     var myWords = [
         "BONJOUR",
         "CAOUTCHOUC",
