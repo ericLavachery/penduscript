@@ -23,7 +23,6 @@ body{
 }
 
 .jumbotron img{
-    color: #FFFFFF;
     mix-blend-mode: difference;
     /* color: #000000;
     text-shadow: 0px 0px 3px white; */
